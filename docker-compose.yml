@@ -1,5 +1,5 @@
 services:
-  web_app:
+  backend:
     build: ./backend
     ports:
       - "8000:8000"
