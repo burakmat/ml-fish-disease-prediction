@@ -9,5 +9,7 @@ services:
     build: ./frontend
     ports:
       - "5173:5173"
+    environment:
+      - VITE_BACKEND_URL=http://209.38.224.80:8000/
     volumes:
       - ./frontend/src:/app/src

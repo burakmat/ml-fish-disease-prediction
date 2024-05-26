@@ -1,5 +1,7 @@
+const url = import.meta.env.VITE_BACKEND_URL
+
 export const predict = async (data: {}) => {
-    return fetch('http://localhost:8000/predict/', {
+    return fetch(url + 'predict/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
