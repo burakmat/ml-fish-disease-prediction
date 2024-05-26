@@ -1,7 +1,7 @@
 import { PropsWithChildren, useState } from "react"
 import { predict } from "../../api/predict"
 
-export default function InputForm({ setResult }: PropsWithChildren<{ setResult: Function }>) {
+export default function InputForm({}: PropsWithChildren) {
     const [test1, setTest1] = useState("")
     const [test2, setTest2] = useState("")
     const [test3, setTest3] = useState("")
