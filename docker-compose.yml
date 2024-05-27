@@ -8,8 +8,8 @@ services:
   frontend:
     build: ./frontend
     ports:
-      - "80:4173"
+      - "80:5173"
     environment:
-      - VITE_BACKEND_URL=http://209.38.224.80:8000/
+      - VITE_BACKEND_URL=http://localhost:8000/
     volumes:
       - ./frontend/src:/app/src

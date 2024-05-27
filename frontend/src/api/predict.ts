@@ -1,6 +1,7 @@
 const url = import.meta.env.VITE_BACKEND_URL
 
 export const predict = async (data: {}) => {
+    console.log("DATA:", data)
     return fetch(url + 'predict/', {
         method: 'POST',
         headers: {

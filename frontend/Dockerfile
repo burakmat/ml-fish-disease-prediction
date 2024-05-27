@@ -1,5 +1,5 @@
 FROM node:22
 WORKDIR /app
 COPY . .
-# RUN npm run build # For production
-ENTRYPOINT [ "npm", "run", "preview" ]
+RUN npm install
+ENTRYPOINT [ "npm", "run", "dev" ]
