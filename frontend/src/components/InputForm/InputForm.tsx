@@ -1,7 +1,7 @@
 import { PropsWithChildren, useState } from "react"
 import { predict } from "../../api/predict"
 
-export default function InputForm({ setResult }: PropsWithChildren<{ setResult: Function }>) {
+export default function InputForm({}: PropsWithChildren) {
     const [test1, setTest1] = useState("")
     const [test2, setTest2] = useState("")
     const [test3, setTest3] = useState("")
@@ -54,8 +54,8 @@ export default function InputForm({ setResult }: PropsWithChildren<{ setResult: 
                         setTest1(e.target.value)
                     }}>
                         <option value="" selected={test1 === ""}>--</option>
-                        <option value="1">+</option>
-                        <option value="0">-</option>
+                        <option value="+">+</option>
+                        <option value="-">-</option>
                     </select>
                 </label>
                 <label>
@@ -64,8 +64,8 @@ export default function InputForm({ setResult }: PropsWithChildren<{ setResult: 
                         setTest2(e.target.value)
                     }}>
                         <option value="" selected={test2 === ""}>--</option>
-                        <option value="1">+</option>
-                        <option value="0">-</option>
+                        <option value="+">+</option>
+                        <option value="-">-</option>
                     </select>
                 </label>
                 <label>
@@ -74,8 +74,8 @@ export default function InputForm({ setResult }: PropsWithChildren<{ setResult: 
                         setTest3(e.target.value)
                     }}>
                         <option value="" selected={test3 === ""}>--</option>
-                        <option value="1">+</option>
-                        <option value="0">-</option>
+                        <option value="+">+</option>
+                        <option value="-">-</option>
                     </select>
                 </label>
                 <label>
@@ -84,8 +84,8 @@ export default function InputForm({ setResult }: PropsWithChildren<{ setResult: 
                         setTest4(e.target.value)
                     }}>
                         <option value="" selected={test4 === ""}>--</option>
-                        <option value="1">+</option>
-                        <option value="0">-</option>
+                        <option value="+">+</option>
+                        <option value="-">-</option>
                     </select>
                 </label>
                 <label>
@@ -94,8 +94,8 @@ export default function InputForm({ setResult }: PropsWithChildren<{ setResult: 
                         setTest5(e.target.value)
                     }}>
                         <option value="" selected={test5 === ""}>--</option>
-                        <option value="1">+/+</option>
-                        <option value="0">-/-</option>
+                        <option value="+/+">+/+</option>
+                        <option value="-/-">-/-</option>
                     </select>
                 </label>
                 <label>
@@ -144,8 +144,8 @@ export default function InputForm({ setResult }: PropsWithChildren<{ setResult: 
                         setTest9(e.target.value)
                     }}>
                         <option value="" selected={test9 === ""}>--</option>
-                        <option value="1">+</option>
-                        <option value="0">-</option>
+                        <option value="+">+</option>
+                        <option value="-">-</option>
                     </select>
                 </label>
                 <label>
