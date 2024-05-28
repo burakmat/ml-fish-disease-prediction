@@ -74,7 +74,7 @@ class ModelHelper:
     def make_prediction(self, input_data):
         if input_data.get('test13', 0):
           bacteria_name = "Flavobacter psychrophilum"
-          return "Predicted Bacteria: {}".format(bacteria_name)
+          return "{}".format(bacteria_name)
           
         else:
           processed_data = {k: v for k, v in input_data.items() if k != 'test13'}
@@ -84,5 +84,5 @@ class ModelHelper:
           numerical_prediction = self.model.predict(processed_data)
           bacteria_name = self.bacteria_names.get(numerical_prediction[0])
 
-          return "Predicted Bacteria: {}".format(bacteria_name)
+          return "{}".format(bacteria_name)
             

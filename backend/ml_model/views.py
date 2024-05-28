@@ -7,12 +7,10 @@ import json
 # Create your views here.
 @csrf_exempt
 def predict(request):
-    print("predict")
-    print("**", request.method, "**")
-    print("**", type(json.loads(request.body.decode('utf-8'))), "**")
-    print("**", request.body, "**")
-    jsonResponse = json.loads(request.body.decode('utf-8'))
     if request.method == 'POST':
-        return JsonResponse({"response": model.make_prediction(jsonResponse)})
+        jsonResponse = json.loads(request.body.decode('utf-8'))
+        prediction = model.make_prediction(jsonResponse)
+        print("***", prediction, "***")
+        return JsonResponse({"prediction": prediction})
     else:
         return JsonResponse({"error": "POST request required."})
