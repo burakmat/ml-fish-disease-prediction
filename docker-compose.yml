@@ -21,9 +21,9 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile.prod
+      args:
+        - VITE_BACKEND_URL=http://localhost:8000/
     ports:
       - "80:4173"
     profiles:
       - prod
-    environment:
-      - VITE_BACKEND_URL=http://localhost:8000/
