@@ -5,11 +5,25 @@ services:
       - "8000:8000"
     volumes:
       - ./backend/ml_model:/app/ml_model
-  frontend:
-    build: ./frontend
+  frontend-dev:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
     ports:
       - "80:5173"
+    profiles:
+      - dev
     environment:
       - VITE_BACKEND_URL=http://localhost:8000/
     volumes:
       - ./frontend/src:/app/src
+  frontend-prod:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.prod
+      args:
+        - VITE_BACKEND_URL=http://localhost:8000/
+    ports:
+      - "80:4173"
+    profiles:
+      - prod
