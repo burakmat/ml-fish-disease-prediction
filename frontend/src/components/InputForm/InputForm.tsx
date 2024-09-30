@@ -24,6 +24,7 @@ export default function InputForm({ setPrediction }: PropsWithChildren<{ setPred
                 onSubmit={
                     async (e) => {
                         e.preventDefault()
+                        setPrediction("loading")
                         const response: prediction = await predict({
                             "test1": test1,
                             "test2": test2,
