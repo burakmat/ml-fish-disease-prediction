@@ -12,10 +12,7 @@ export default function InputForm({ setPrediction }: PropsWithChildren<{ setPred
     const [test7, setTest7] = useState("")
     const [test8, setTest8] = useState("")
     const [test9, setTest9] = useState("")
-    const [test10, setTest10] = useState("")
-    const [test11, setTest11] = useState("")
-    const [test12, setTest12] = useState("")
-    const [test13, setTest13] = useState(false)
+    const [test10, setTest10] = useState(false)
 
     return (
         <>
@@ -24,20 +21,18 @@ export default function InputForm({ setPrediction }: PropsWithChildren<{ setPred
                 onSubmit={
                     async (e) => {
                         e.preventDefault()
+                        setPrediction("loading")
                         const response: prediction = await predict({
-                            "test1": test1,
-                            "test2": test2,
-                            "test3": test3,
-                            "test4": test4,
-                            "test5": test5,
-                            "test6": test6,
-                            "test7": test7,
-                            "test8": test8,
-                            "test9": test9,
-                            "test10": test10,
-                            "test11": test11,
-                            "test12": test12,
-                            "test13": test13
+                            "Gram Boyama": test1,
+                            "Hareket": test2,
+                            "Oksidaz": test3,
+                            "Katalaz": test4,
+                            "glukoz kullanımı": test5,
+                            "inkübasyon sıcaklık aralığı": test6,
+                            "ürediği besi yeri": test7,
+                            "üreme süresi": test8,
+                            "O/129": test9,
+                            "slippage": test10
                         })
                         console.log(response, response.prediction)
 
@@ -93,6 +88,8 @@ export default function InputForm({ setPrediction }: PropsWithChildren<{ setPred
                         }}>
                             <option value="">--</option>
                             <option value="+/+">+/+</option>
+                            <option value="+/-">+/-</option>
+                            <option value="-/+">-/+</option>
                             <option value="-/-">-/-</option>
                         </select>
                     </label>
@@ -102,9 +99,8 @@ export default function InputForm({ setPrediction }: PropsWithChildren<{ setPred
                             setTest6(e.target.value)
                         }}>
                             <option value="">--</option>
-                            <option value="0">&lt; 25&deg;C</option>
-                            <option value="1">25&deg;C</option>
-                            <option value="2">&gt; 25&deg;C</option>
+                            <option value="< 25">&lt; 25&deg;C</option>
+                            <option value=">= 25">&gt;= 25&deg;C</option>
                         </select>
                     </label>
                     <label>
@@ -113,14 +109,25 @@ export default function InputForm({ setPrediction }: PropsWithChildren<{ setPred
                             setTest7(e.target.value)
                         }}>
                             <option value="">--</option>
-                            <option value="0">Gassner Agar Plates</option>
-                            <option value="1">BHIA and TSA</option>
-                            <option value="2">MacConkey</option>
-                            <option value="3">Marine Agar 2216</option>
-                            <option value="4">TCBS</option>
-                            <option value="5">TSA</option>
-                            <option value="6">TSA and BA</option>
-                            <option value="7">TYES</option>
+                            <option value="TSA">TSA</option>
+                            <option value="BHIA">BHIA</option>
+                            <option value="BA">BA</option>
+                            <option value="NA">NA</option>
+                            <option value="Pseudomonas agar">Pseudomonas agar</option>
+                            <option value="Pseudomonas selective medyum">Pseudomonas selective medyum</option>
+                            <option value="Pseudomonas CFC medyum">Pseudomonas CFC medyum</option>
+                            <option value="TCBS">TCBS</option>
+                            <option value="Tuzlu TSA">Tuzlu TSA</option>
+                            <option value="Tuzlu BA">Tuzlu BA</option>
+                            <option value="Tuzlu BHIA">Tuzlu BHIA</option>
+                            <option value="MA">MA</option>
+                            <option value="TYES ve AO">TYES ve AO</option>
+                            <option value="TYES with fotal bovine serum">TYES with fotal bovine serum</option>
+                            <option value="KDM">KDM</option>
+                            <option value="KDM-1">KDM-1</option>
+                            <option value="KDM-2">KDM-2</option>
+                            <option value="KDM-C">KDM-C</option>
+                            <option value="MacConkey">MacConkey</option>
                         </select>
                     </label>
                     <label>
@@ -129,11 +136,10 @@ export default function InputForm({ setPrediction }: PropsWithChildren<{ setPred
                             setTest8(e.target.value)
                         }}>
                             <option value="">--</option>
-                            <option value="0">5-7 hours</option>
-                            <option value="1">24-72 hours</option>
-                            <option value="2">72-96 hours</option>
-                            <option value="3">5 days</option>
-                            <option value="4">7 days</option>
+                            <option value="24-48 saat">24-48 hours</option>
+                            <option value="48-72 saat">48-72 hours</option>
+                            <option value="72- 96 saat">72-96 hours</option>
+                            <option value="2-6 hafta">2-6 weeks</option>
                         </select>
                     </label>
                     <label>
@@ -142,51 +148,15 @@ export default function InputForm({ setPrediction }: PropsWithChildren<{ setPred
                             setTest9(e.target.value)
                         }}>
                             <option value="">--</option>
-                            <option value="+">+</option>
-                            <option value="-">-</option>
-                        </select>
-                    </label>
-                    <label>
-                        Fish Species:
-                        <select name="t10" id="t10" value={test10} required onChange={(e) => {
-                            setTest10(e.target.value)
-                        }}>
-                            <option value="">--</option>
-                            <option value="0">Salmonid Fish</option>
-                            <option value="1">Trout</option>
-                            <option value="2">Environment</option>
-                            <option value="3">Rainbow Trout</option>
-                            <option value="4">Penaeus Monodon</option>
-                            <option value="5">Oncorhynchus Mykiss</option>
-                            <option value="6">Salmonid and Non-Salmonid</option>
-                            <option value="7">Gilthead Sea Bream</option>
-                        </select>
-                    </label>
-                    <label>
-                        Habitat Temperature:
-                        <select name="t11" id="t11" value={test11} required onChange={(e) => {
-                            setTest11(e.target.value)
-                        }}>
-                            <option value="">--</option>
-                            <option value="0">3-21&deg;C</option>
-                            <option value="1">21-35&deg;C</option>
-                        </select>
-                    </label>
-                    <label>
-                        Water Quality:
-                        <select name="t12" id="t12" value={test12} required onChange={(e) => {
-                            setTest12(e.target.value)
-                        }}>
-                            <option value="">--</option>
-                            <option value="0">Freshwater</option>
-                            <option value="1">Seawater</option>
-                            <option value="2">Freshwater and Seawater</option>
+                            <option value="R">R</option>
+                            <option value="S">S</option>
+                            <option value="0">Undefined</option>
                         </select>
                     </label>
                     <label>
                         Slippage:
                         <input type="checkbox" onChange={(e) => {
-                            setTest13(e.target.checked)
+                            setTest10(e.target.checked)
                         }} />
                     </label>
                 </div>
@@ -197,13 +167,10 @@ export default function InputForm({ setPrediction }: PropsWithChildren<{ setPred
                     setTest3("+")
                     setTest4("+")
                     setTest5("+/+")
-                    setTest6("0")
-                    setTest7("1")
-                    setTest8("1")
-                    setTest9("+")
-                    setTest10("1")
-                    setTest11("1")
-                    setTest12("1")
+                    setTest6("< 25")
+                    setTest7("TYES ve AO")
+                    setTest8("72- 96 saat")
+                    setTest9("R")
                 }}>Fill Values</button>
                 <button>Predict</button>
             </form>
